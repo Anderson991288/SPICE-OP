@@ -67,5 +67,48 @@ plot v(1) v(2) v(6)
 
 ![Screenshot from 2022-07-11 17-35-35](https://user-images.githubusercontent.com/68816726/178235200-796c93b8-0b33-4cbd-9ca2-f5c7164ba30d.png)
 
+## Instrumentation Amplifier
 
+
+![Screenshot from 2022-07-11 22-00-20](https://user-images.githubusercontent.com/68816726/178281592-7b29d6f9-1418-4388-a719-74c785bb8e8e.png)
+
+netlist
+```
+Instrumentation Amplifier
+* op amp subcircuit *
+.subckt ideal_opamp 1 2 3
+* node1: output terminal
+* node2: noninverting input terminal
+* node3: inverting terminal
+Eopamp 1 0 2 3 1e7
+Iopen1 2 0 0A
+Iopen2 3 0 0A
+.ends ideal_opamp
+* main circuit *
+Vcm 5 0 sin(0 20V 100Hz)
+Vdc1 5 1 DC 15mV
+Vdc2 2 5 DC 15mV
+Xop_A1 6 1 3 ideal_opamp
+Xop_A2 7 2 4 ideal_opamp
+Xop_A3 10 9 8 ideal_opamp
+Ra 3 4 5k
+Rb1 3 6 50k
+Rb2 4 7 50k
+R1 6 8 15k
+R2 8 10 15k
+R3 7 9 15k
+R4 9 0 15k
+* analysis request *
+.tran 10us 80ms 0 10us
+.control
+run
+* output request *
+print v(1) v(2) v(10)
+plot v(2) 
+plot v(1)
+plot v(1) v(2) v(10)
+.endc
+```
+
+![Screenshot from 2022-07-11 21-59-19](https://user-images.githubusercontent.com/68816726/178281717-5d50d4d5-e545-4160-8300-72e5414adab5.png)
 
