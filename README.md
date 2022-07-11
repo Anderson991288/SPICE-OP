@@ -1,5 +1,5 @@
 # SPICE-OP
-### **Damped Miller Integrator**
+## **Damped Miller Integrator**
 
 ![Screenshot from 2022-07-11 17-29-51](https://user-images.githubusercontent.com/68816726/178234074-6e05f332-655b-40c7-9683-538bc50016a8.png)
 
@@ -19,9 +19,19 @@ plot db(v(3))
 .endc
 ```
 
+*調整RC大小來控制cutoff frequency*
+### R1 = 1k
 ![Screenshot from 2022-07-11 17-27-56](https://user-images.githubusercontent.com/68816726/178234206-b00e1393-44b0-453c-a87e-4a5b045af493.png)
 
-### differential amplifier
+### R1 = 100
+![Screenshot from 2022-07-11 21-28-31](https://user-images.githubusercontent.com/68816726/178275259-6f353b85-be0e-4580-b273-1fbd25a35ca9.png)
+
+
+
+
+
+
+## differential amplifier
 
 ![Screenshot from 2022-07-11 17-32-03](https://user-images.githubusercontent.com/68816726/178234546-16d2b531-967d-423b-b579-ac78aa22306e.png)
 
